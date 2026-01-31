@@ -14,6 +14,7 @@
             <span class="close-nav" id="closeBtn">&times;</span>
         </div>
         <div class="side-nav-links">
+            <div class="nav-group"><h3>ABOUT</h3></div>
             <div class="nav-group"><h3>SCHOOLS</h3></div>
             <div class="nav-group"><h3>ACADEMICS</h3></div>
             <div class="nav-group"><h3>ADMISSIONS</h3></div>
@@ -25,7 +26,7 @@
             <div class="nav-group"><h3>INTERNATIONAL RELATIONS CELL</h3></div>
             <div class="nav-group"><h3>BLOGS</h3></div>
             <div class="admission-helpline">
-                <i class="fas fa-phone-alt"></i> Admission Helpline: 1800-212-2714
+                <i class="fas fa-phone-alt"></i> Admission Helpline: <br><strong>1800-212-2714</strong>
             </div>
         </div>
     </div>
@@ -46,14 +47,28 @@
     </div>
 
     <div class="top-bar">
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="far fa-compass"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fa bi bi-twitter-x"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="social-wrapper">
+            <ul class="social-list">
+                <li>
+                    <a href="https://api.whatsapp.com/send/?phone=919545453092&text=Hi%21+I%27m+interested+to+know+more.&type=phone_number&app_absent=0" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.sandipuniversity.edu.in/360/" target="_blank">
+                        <i class="far fa-compass"></i><span class="deg">360</span>
+                    </a>
+                </li>
+                <li><a href="https://www.facebook.com/SandipUniversity/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li>
+                    <a href="https://twitter.com/sandipuniv" target="_blank">
+                        <svg style="width: 14px; height: 14px; fill: white; margin-bottom: -2px;" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path></svg>
+                    </a>
+                </li>
+                <li><a href="https://in.linkedin.com/school/sandipuniversity/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/sandip.university/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCDAaVM3kH_Jk7jgSaQj5xFw" target="_blank"><i class="fab fa-youtube"></i></a></li>
+            </ul>
         </div>
     </div>
 
@@ -69,22 +84,25 @@
     <div class="main-content">
         <div class="box">
             <h2>Results</h2>
-            <div class="exam-info">
-                <h3>End Semester Examination- MAY 2025</h3>
+            <div class="exam-selector">
+                <button onclick="toggleExamOptions()" class="select-exam-btn"><i class="fas fa-calendar-alt"></i> Select Exam</button>
+                <div id="exam-options" class="exam-options hidden">
+                    <button onclick="openExamLink('https://www.sandipuniversity.edu.in/result/display.php?exam=soet_cse0225')" class="exam-option-btn">DEC 2024</button>
+                    <button onclick="openExamLink('https://www.sandipuniversity.edu.in/result/display.php?exam=07202502D')" class="exam-option-btn">MAY 2025</button>
+                </div>
             </div>
+            <div class="exam-info"><h3>End Semester Examination- DEC 2025</h3></div>
             <div class="form-container">
                 <label for="prn">PRN:</label>
                 <input type="text" id="prn" placeholder="Enter PRN">
                 <label for="dob">Date Of Birth</label>
-                <span class="dob-format">dd-mm-yyyy:</span>
                 <input type="date" id="dob">
                 <button onclick="checkResult()" class="submit-btn">Submit</button>
                 <div id="result-wrapper" class="hidden">
                     <div class="divider"></div>
                     <embed id="marksheet-pdf" src="" type="application/pdf" width="100%" height="600px">
-                    <div class="btn-row"><button class="down-btn">Down</button></div>
-                    <div id="popup" class="popup hidden"><i class="fab fa-whatsapp"></i> Result sent to WhatsApp.</div>
-                    <div class="disclaimer"><strong>Disclaimer:</strong> Provisional online results.</div>
+                    <div class="btn-row"><button class="down-btn"><i class="fas fa-download"></i> Download</button></div>
+                    <div id="popup" class="popup hidden"><i class="fas fa-mobile-alt"></i> Result has sent to parents mobile number, kindly check</div>
                 </div>
             </div>
             <p id="msg"></p>
@@ -125,7 +143,7 @@
                     <li>NEP</li>
                     <li>Committees</li>
                     <li>Ombuds Person</li>
-                    <li>Statutory Declaration</li>
+                    <li>Statutory Declaration Under Section 4(1)(b) of the RTI Act 2005 (RTI)</li>
                     <li>Faculty Blog</li>
                 </ul>
             </div>
@@ -135,20 +153,23 @@
                 <p><i class="fas fa-envelope"></i> info@sandipuniversity.edu.in</p>
                 <p><i class="fas fa-phone"></i> 1800-212-2714</p>
                 <p><i class="fas fa-mobile-alt"></i> +91 9545453092</p>
-                <div class="footer-socials">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
             </div>
         </div>
     </section>
 
-    <footer class="action-footer">
-        <div class="footer-btn"><i class="fas fa-arrow-up"></i> ENQUIRE NOW</div>
-        <div class="footer-btn"><i class="fas fa-phone-alt"></i> CALL NOW</div>
-    </footer>
+    <div class="cd-top" id="mobiledevice">
+        <div class="backtop">
+            <a href="https://www.sandipuniversity.edu.in/admission.php">
+                <i class="fas fa-angle-up"></i> Enquire Now
+            </a>
+        </div>
+        <span class="spacer">|</span>
+        <span class="mobile-all-lp">
+            <a href="tel:1800-212-2714">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+        </span>
+    </div>
 
     <script src="script.js"></script>
 </body>
