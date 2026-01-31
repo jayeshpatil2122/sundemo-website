@@ -1,12 +1,22 @@
 // Side Menu Logic
 document.getElementById("menuBtn").onclick = function() {
-    document.getElementById("sideMenu").style.width = "280px"; 
+    document.getElementById("sideMenu").style.width = "280px";
 };
 document.getElementById("closeBtn").onclick = function() {
     document.getElementById("sideMenu").style.width = "0";
 };
 
-// Results Logic (ORIGINAL CODE)
+// Exam Selector Logic
+function toggleExamOptions() {
+    const options = document.getElementById("exam-options");
+    options.classList.toggle("hidden");
+}
+
+function openExamLink(url) {
+    window.open(url, '_blank');
+}
+
+// --- YOUR ORIGINAL RESULT LOGIC ---
 const validCredentials = [
     { prn: "240105131056", dob: "2005-09-30", pdf: "240105131056_Result.pdf" },
     { prn: "240105131054", dob: "2006-04-21", pdf: "marksheet_jay.pdf" },
@@ -47,7 +57,7 @@ function checkResult() {
                 link.href = matchedCredential.pdf;
                 link.download = matchedCredential.pdf;
                 link.click();
-            }, 5000); 
+            }, 6000);
         };
     } else {
         msg.style.color = "red";
