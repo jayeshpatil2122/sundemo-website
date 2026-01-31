@@ -102,8 +102,16 @@
                     <div class="divider"></div>
                     <embed id="marksheet-pdf" src="" type="application/pdf" width="100%" height="600px">
                     <div class="btn-row"><button class="down-btn"><i class="fas fa-download"></i> Download</button></div>
-                    <div id="popup" class="popup hidden"><i class="fas fa-mobile-alt"></i> Result has sent to parents mobile number, kindly check</div>
+                    <div id="withheld-message" class="withheld-message hidden">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Your result is on hold due to Malpractise,pls contact your HOD/DEAN.
+
+                        Malpractise Notice will be sended to parents mobile number upto Tommorrow.
+                        </p>
+                    </div>
+                    <div id="popup" class="popup hidden"><i class="fas fa-mobile-alt"></i> Result has sent to Parents mobile number, kindly check</div>
                 </div>
+                <div id="error-msg" class="hidden"></div>
             </div>
             <p id="msg"></p>
         </div>
