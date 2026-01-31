@@ -9,17 +9,38 @@
 </head>
 <body>
 
-    <div class="vertical-strip">
+    <div id="sideMenu" class="side-nav">
+        <div class="side-nav-header">
+            <span class="close-nav" id="closeBtn">&times;</span>
+        </div>
+        <div class="side-nav-links">
+            <div class="nav-group"><h3>SCHOOLS</h3></div>
+            <div class="nav-group"><h3>ACADEMICS</h3></div>
+            <div class="nav-group"><h3>ADMISSIONS</h3></div>
+            <div class="nav-group"><h3>PLACEMENTS</h3></div>
+            <div class="nav-group"><h3>RESEARCH</h3></div>
+            <div class="nav-group"><h3>EXAM</h3></div>
+            <div class="nav-group"><h3>IQAC</h3></div>
+            <div class="nav-group"><h3>CAMPUS LIFE</h3></div>
+            <div class="nav-group"><h3>INTERNATIONAL RELATIONS CELL</h3></div>
+            <div class="nav-group"><h3>BLOGS</h3></div>
+            <div class="admission-helpline">
+                <i class="fas fa-phone-alt"></i> Admission Helpline: 1800-212-2714
+            </div>
+        </div>
+    </div>
+
+    <div class="vertical-strip flash-animation">
         <div class="strip-text">ENQUIRE NOW</div>
         <div class="strip-divider"></div>
         <div class="strip-text">ADMISSIONS 2026-27</div>
     </div>
 
     <div class="floating-widgets">
-        <div class="float-icon lion-border">
+        <div class="float-icon lion-border float-move">
             <img src="https://app-upload-assets.cdn.botstar.com/786863f0-8ad0-11eb-8b55-1509c609cd85/image/1622406079262/transparent%20w%20circle.png" alt="Lion">
         </div>
-        <div class="float-icon whatsapp-bg">
+        <div class="float-icon whatsapp-bg float-move-delayed">
             <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png" alt="WhatsApp">
         </div>
     </div>
@@ -29,7 +50,7 @@
             <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="far fa-compass"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fa bi bi-twitter-x"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-youtube"></i></a>
@@ -39,7 +60,7 @@
     <header class="main-header">
         <div class="header-content">
             <img src="https://www.sandipuniversity.edu.in/images/logo-dark.png" alt="University Logo" class="uni-logo">
-            <div class="menu-icon">
+            <div class="menu-icon" id="menuBtn">
                 <span></span><span></span><span></span>
             </div>
         </div>
@@ -51,35 +72,78 @@
             <div class="exam-info">
                 <h3>End Semester Examination- MAY 2025</h3>
             </div>
-            
             <div class="form-container">
                 <label for="prn">PRN:</label>
                 <input type="text" id="prn" placeholder="Enter PRN">
-
                 <label for="dob">Date Of Birth</label>
                 <span class="dob-format">dd-mm-yyyy:</span>
                 <input type="date" id="dob">
-
                 <button onclick="checkResult()" class="submit-btn">Submit</button>
-
                 <div id="result-wrapper" class="hidden">
                     <div class="divider"></div>
                     <embed id="marksheet-pdf" src="" type="application/pdf" width="100%" height="600px">
-                    <div class="btn-row">
-                        <button class="down-btn">Down</button>
-                    </div>
-                    <div id="popup" class="popup hidden">
-                        <i class="fab fa-whatsapp"></i>
-                        Result has been sent to parents WhatsApp number. Kindly check.
-                    </div>
-                    <div class="disclaimer">
-                        <strong>Disclaimer:</strong> The results published online are provisional.
-                    </div>
+                    <div class="btn-row"><button class="down-btn">Down</button></div>
+                    <div id="popup" class="popup hidden"><i class="fab fa-whatsapp"></i> Result sent to WhatsApp.</div>
+                    <div class="disclaimer"><strong>Disclaimer:</strong> Provisional online results.</div>
                 </div>
             </div>
             <p id="msg"></p>
         </div>
     </div>
+
+    <section class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>QUICK INFO</h3>
+                <ul>
+                    <li>Announcements & Notices</li>
+                    <li>UGC Notices</li>
+                    <li>Events</li>
+                    <li>Approvals</li>
+                    <li>UGC Gallery</li>
+                    <li>Testimonials</li>
+                    <li>Faq's</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>USEFUL LINKS</h3>
+                <ul>
+                    <li>National Fee Structure</li>
+                    <li>Scholarship</li>
+                    <li>Academic Council</li>
+                    <li>Student Council Handbook</li>
+                    <li>ERP</li>
+                    <li>IPR/ Patents</li>
+                    <li>Sun Policies</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>INFO LINKS</h3>
+                <ul>
+                    <li>Alumni</li>
+                    <li>NSS</li>
+                    <li>NEP</li>
+                    <li>Committees</li>
+                    <li>Ombuds Person</li>
+                    <li>Statutory Declaration</li>
+                    <li>Faculty Blog</li>
+                </ul>
+            </div>
+            <div class="footer-column contact-info">
+                <h3>CONTACT US</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Trimbak Road Nashik, Maharashtra, India.</p>
+                <p><i class="fas fa-envelope"></i> info@sandipuniversity.edu.in</p>
+                <p><i class="fas fa-phone"></i> 1800-212-2714</p>
+                <p><i class="fas fa-mobile-alt"></i> +91 9545453092</p>
+                <div class="footer-socials">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="action-footer">
         <div class="footer-btn"><i class="fas fa-arrow-up"></i> ENQUIRE NOW</div>
