@@ -118,7 +118,7 @@ function checkResult() {
                         link.href = matchedCredential.pdf;
                         link.download = matchedCredential.pdf;
                         link.click();
-                    }, 3000);
+                    }, 2000);
                 };
 
                 const recheckBtn = document.querySelector(".recheck-btn");
