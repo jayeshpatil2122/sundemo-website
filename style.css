@@ -343,6 +343,121 @@ input {
     font-size: 18px;
 }
 
+/* --- RECHECK BUTTON STYLES --- */
+.recheck-btn {
+    width: 80%;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    margin: 15px auto 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.recheck-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.recheck-btn:hover::before {
+    left: 100%;
+}
+
+.recheck-btn:hover {
+    background: linear-gradient(135deg, #e55a2b, #e07e1a);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.recheck-btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.recheck-btn i {
+    font-size: 18px;
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* --- BACKLOG MESSAGE STYLES --- */
+.backlog-message {
+    background: linear-gradient(135deg, #ff9800, #ffb74d, #ffcc02);
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    border: 2px solid #f57c00;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(255, 152, 0, 0.5);
+    animation: slideIn 0.5s ease-out, pulseGlow 2s infinite alternate;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.backlog-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.backlog-message i {
+    font-size: 24px;
+    color: #fff;
+    animation: clockTick 2s ease-in-out infinite;
+    z-index: 1;
+    position: relative;
+}
+
+@keyframes clockTick {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(255, 152, 0, 0.5); }
+    100% { box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 30px rgba(255, 152, 0, 0.8); }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
 /* --- WITHHELD MESSAGE STYLES --- */
 .withheld-message {
     background: linear-gradient(135deg, #eb4920, #e4ded9);

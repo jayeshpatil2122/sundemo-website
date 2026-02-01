@@ -98,18 +98,23 @@
                 <label for="dob">Date Of Birth</label>
                 <input type="date" id="dob">
                 <button onclick="checkResult()" class="submit-btn">Submit</button>
+                <div id="backlog-message" class="backlog-message hidden">
+                    <i class="fas fa-clock"></i>
+                    Backlog results will be published after few days
+                </div>
                 <div id="result-wrapper" class="hidden">
                     <div class="divider"></div>
                     <embed id="marksheet-pdf" src="" type="application/pdf" width="100%" height="600px">
                     <div class="btn-row"><button class="down-btn"><i class="fas fa-download"></i> Download</button></div>
+                    <div class="btn-row"><button class="recheck-btn"><i class="fas fa-search"></i> RECHECK RESULT</button></div>
                     <div id="withheld-message" class="withheld-message hidden">
                         <i class="fas fa-exclamation-triangle"></i>
                         <p>Your result is on hold due to Malpractise,pls contact your HOD/DEAN.
 
-                        Malpractise Notice will be sended to parents mobile number upto Tommorrow.
+                        Malpractise Notice will be sended to Home address through post upto Tommorrow.
                         </p>
                     </div>
-                    <div id="popup" class="popup hidden"><i class="fas fa-mobile-alt"></i> Result has sent to Parents mobile number, kindly check</div>
+                    <div id="popup" class="popup hidden"><i class="fas fa-mobile-alt"></i> Result has sended to Parents mobile number, kindly check</div>
                 </div>
                 <div id="error-msg" class="hidden"></div>
             </div>

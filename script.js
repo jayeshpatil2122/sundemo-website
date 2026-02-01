@@ -29,14 +29,21 @@ function openExamLink(url) {
 
 // --- YOUR ORIGINAL RESULT LOGIC ---
 const validCredentials = [
-    { prn: "240105131056", dob: "2005-09-30", pdf: "240105131056_Result.pdf" },
-    { prn: "240105131054", dob: "2006-04-21", pdf: "marksheet_jay.pdf" },
-    { prn: "240105231042", dob: "2006-01-08", pdf: "result_alice.pdf" },
-    { prn: "240105131059", dob: "2005-10-03", pdf: "marksheet_bob.pdf" },
-    { prn: "240105131060", dob: "2005-10-04", pdf: "result_charlie.pdf" },
-    { prn: "240105131061", dob: "2005-10-05", pdf: "marksheet_diana.pdf" },
-    { prn: "240105131062", dob: "2005-10-06", pdf: "result_eve.pdf" },
-    { prn: "240105131063", dob: "2005-10-07", pdf: "marksheet_frank.pdf" }
+    { prn: "240105131056", dob: "2005-09-30", pdf: "240105131056_result_9.pdf" }, //sau
+    { prn: "240105131054", dob: "2006-04-21", pdf: "240105131054_result.pdf" },// jay
+    { prn: "240105231042", dob: "2006-01-08", pdf: "result_alice.pdf" },//sat
+    { prn: "240105131311", dob: "2005-11-09", pdf: "240105131311_result.pdf" }, //ayu
+    { prn: "240105131065", dob: "2006-03-08", pdf: "240105131065_result.pdf" },//san
+    { prn: "240105131134", dob: "2005-11-04", pdf: "240105131134_result.pdf" },//nak
+    { prn: "240105131207", dob: "2005-12-30", pdf: "240105131207_result.pdf" },//ani
+    { prn: "240105131212", dob: "2005-08-01", pdf: "240105131212_result.pdf" },//kun
+    { prn: "240105131353", dob: "2006-11-22", pdf: "240105131353_result_2.pdf" },//han
+    { prn: "240105231005", dob: "2006-09-12", pdf: "240105231005_result.pdf" },//dev
+    { prn: "240105231293", dob: "2005-05-20", pdf: "240105231293_result_1.pdf" },//prem
+    { prn: "placeholder_prn_4", dob: "2000-01-04", pdf: "placeholder_pdf_4.pdf" },
+    { prn: "placeholder_prn_5", dob: "2000-01-05", pdf: "placeholder_pdf_5.pdf" },
+    { prn: "placeholder_prn_6", dob: "2000-01-06", pdf: "placeholder_pdf_6.pdf" },
+    { prn: "placeholder_prn_7", dob: "2000-01-07", pdf: "placeholder_pdf_7.pdf" }
 ];
 
 function checkResult() {
@@ -54,6 +61,8 @@ function checkResult() {
     errorMsg.classList.add("hidden");
     errorMsg.innerHTML = "";
     document.getElementById("withheld-message").classList.add("hidden");
+    document.getElementById("backlog-message").classList.add("hidden");
+    pdf.style.display = "block"; // Reset PDF display
 
     // Debug: Log input values
     console.log("PRN:", prn, "DOB:", dob);
@@ -83,32 +92,44 @@ function checkResult() {
             const matchedCredential = validCredentials.find(cred => cred.prn === prn && cred.dob === dob);
             console.log("Matched credential:", matchedCredential);
             if (matchedCredential) {
-                if (matchedCredential.prn === "240105231042" && matchedCredential.dob === "2006-01-08") {
-                    // Special case: Show withheld message box instead of PDF
-                    pdf.src = "";
-                    pdf.style.display = "none"; // Hide PDF embed
-                    downBtn.style.display = "none"; // Hide download button
-                    document.getElementById("withheld-message").classList.remove("hidden");
-                    wrapper.classList.remove("hidden");
-                    wrapper.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    pdf.src = matchedCredential.pdf;
-                    wrapper.classList.remove("hidden");
-                    wrapper.scrollIntoView({ behavior: 'smooth' });
-                    downBtn.style.display = "block"; // Show download button
+            if (matchedCredential.prn === "240105231042" && matchedCredential.dob === "2006-01-08") {
+                // Special case: Show withheld message box instead of PDF, no backlog message
+                pdf.src = "";
+                pdf.style.display = "none"; // Hide PDF embed
+                downBtn.style.display = "none"; // Hide download button
+                document.querySelector(".recheck-btn").style.display = "none"; // Hide recheck button
+                document.getElementById("withheld-message").classList.remove("hidden");
+                wrapper.classList.remove("hidden");
+                wrapper.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Show the backlog message and result PDF for other valid results
+                document.getElementById("backlog-message").classList.remove("hidden");
 
-                    downBtn.onclick = function() {
-                        const popup = document.getElementById("popup");
-                        popup.classList.remove("hidden");
-                        setTimeout(function() {
-                            popup.classList.add("hidden");
-                            const link = document.createElement('a');
-                            link.href = matchedCredential.pdf;
-                            link.download = matchedCredential.pdf;
-                            link.click();
-                        }, 6000);
-                    };
-                }
+                pdf.src = matchedCredential.pdf;
+                pdf.style.display = "block"; // Ensure PDF is visible
+                wrapper.classList.remove("hidden");
+                wrapper.scrollIntoView({ behavior: 'smooth' });
+                downBtn.style.display = "block"; // Show download button
+                document.querySelector(".recheck-btn").style.display = "block"; // Show recheck button
+
+                downBtn.onclick = function() {
+                    setTimeout(function() {
+                        const link = document.createElement('a');
+                        link.href = matchedCredential.pdf;
+                        link.download = matchedCredential.pdf;
+                        link.click();
+                    }, 3000);
+                };
+
+                const recheckBtn = document.querySelector(".recheck-btn");
+                recheckBtn.onclick = function() {
+                    const popup = document.getElementById("popup");
+                    popup.classList.remove("hidden");
+                    setTimeout(function() {
+                        popup.classList.add("hidden");
+                    }, 7000);
+                };
+            }
             } else {
                 errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Invalid Date of Birth!';
                 errorMsg.classList.remove("hidden");
