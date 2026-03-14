@@ -39,7 +39,7 @@ const validCredentials = [
     { prn: "240105131212", dob: "2005-08-01", pdf: "240105131212_result.pdf" },//kun
     { prn: "240105131353", dob: "2006-11-22", pdf: "240105131353_result_2.pdf" },//han
     { prn: "240105231005", dob: "2006-09-12", pdf: "240105231005_result.pdf" },//dev
-    { prn: "240105231293", dob: "2005-05-20", pdf: "240105231293_result_1.pdf" },//prem
+    { prn: "240105231293", dob: "2005-05-20", pdf: "240105231293_result.pdf" },//prem240105231293_result.pdf
     { prn: "placeholder_prn_4", dob: "2000-01-04", pdf: "placeholder_pdf_4.pdf" },
     { prn: "placeholder_prn_5", dob: "2000-01-05", pdf: "placeholder_pdf_5.pdf" },
     { prn: "placeholder_prn_6", dob: "2000-01-06", pdf: "placeholder_pdf_6.pdf" },
